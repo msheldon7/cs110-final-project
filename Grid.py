@@ -20,7 +20,7 @@ class Grid:
         grid_list=[]
         for i in range(self.y):
             grid_list.append([])
-            #accessed wiht grid_list[r][c]
+            #accessed with grid_list[r][c]
             #length of grid_list {self.y} is the number of rows in grid
             #length of grid_list internal lists {self.x} is num of columns
 
