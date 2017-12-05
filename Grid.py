@@ -6,8 +6,8 @@ class Grid:
 
         self.cards=num_cards
 
-        self.x=4
-        self.y=3
+        self.x=6
+        self.y=4
 
         grid_list=[]
         for i in range(self.y):
