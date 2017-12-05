@@ -6,16 +6,8 @@ class Grid:
 
         self.cards=num_cards
 
-
-        if num_cards==20:
-            self.x=5
-            self.y=4
-        elif num_cards==40:
-            self.x=8
-            self.y=5
-        elif num_cards==60:
-            self.x=6
-            self.y=10
+        self.x=4
+        self.y=3
 
         grid_list=[]
         for i in range(self.y):
@@ -24,19 +16,13 @@ class Grid:
             #length of grid_list {self.y} is the number of rows in grid
             #length of grid_list's internal lists {self.x} is num of columns
 
-        #if num_cards==20:
-            
-        if num_cards==40:
+        i=0
+        #Adds cards in card_list to 2D grid_list
+        for r in range(self.y):
+            for c in range(self.x):
+                grid_list[r][c]=card_list[i]
+                i+=1
 
-            i=0
-            #Adds cards in card_list to 2D grid_list
-            for r in range(self.y):
-                for c in range(self.x):
-                    grid_list[r][c]=card_list[i]
-                    i+=1
-                
-            
-        #if num_cards==60:
             
 
 
