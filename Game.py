@@ -6,7 +6,7 @@ import findButton
 import sys
 import evaluate
 import time
-import pickle
+import json
 
 def game(player):
     pygame.init()
@@ -169,7 +169,7 @@ def game(player):
 
         if playerPoints == 12 and scored == 0
             timerEnd = timer*100 + random.randint(1, 45)
-            highscores = pickle.load(open("highscoresList".txt", "r"))
+            highscores = json.load(open("highscoresList".txt", "r"))
             highscores[str(timerEnd)] = str(player)
-            pickle.dump(highscores,open("highscoresList.txt", "w"))
+            json.dump(highscores,open("highscoresList.txt", "w"))
             scored += 1
