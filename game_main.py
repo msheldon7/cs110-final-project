@@ -7,7 +7,7 @@ import pygame
 
 
 pygame.init()
-pygame.display.set_caption('Matching Game')
+pygame.display.set_caption('Winter Matching Game')
 #clock=pygame.time.clock()
 
 x=800
@@ -17,7 +17,7 @@ display_window=pygame.display.set_mode((x,y))
 
 game_finish=False
 
-answer=40
+answer=24
 cardlist=Card.createCardList(answer)
 table=Grid.Grid(answer,cardlist)
 
