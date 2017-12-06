@@ -4,23 +4,24 @@ import random
 #Constructs card object with attributes: front and back images, revealed
 class Card:
 
-    def __init__(self, screen, coordinates, size, background, over, front_image_file, clicked):
+    def __init__(self, screen, coordinates, front_image_file):
 
         self.front=str(front_image_file)
         self.back='Back.png'
 
         self.revealed=False
+        
+        self.size=(160,160)
         self.screen = screen
         self.coordinates = coordinates
-        self.over = over
-        self.background = background
-        self.clicked = clicked
+        self.background = False
+        self.clicked = False
 
     def getCoordinates(self):
         return self.coordinates
 
     def getSize(self):
-        return self.size():
+        return self.size()
 
     def getClicked(self, clicked):
         return self.clicked
@@ -52,7 +53,7 @@ class Card:
         return str(self.front)
 
 
-def createCardList(num_cards):
+def createCardList(num_cards, gameDisplay):
 
     picture_list1=['Penguin.png','Snowflake.png','Tree.png','GingerbreadMan.png','NorthPole.png','Star.png','Sleigh.png','Reindeer.png','Owl.png','Stocking.png','Snowman.png','Bells.png','Penguin.png','Snowflake.png','Tree.png','GingerbreadMan.png','NorthPole.png','Star.png','Sleigh.png','Reindeer.png','Owl.png','Stocking.png','Snowman.png','Bells.png']
     picture_list2=random.sample(picture_list1,num_cards)
@@ -60,7 +61,17 @@ def createCardList(num_cards):
 
     cardlist=[]
     for i in range(num_cards):
-        cardlist.append(Card(picture_list2[i]))
+
+        if i<6:
+            loc=( (i*160)+2, 2)
+        elif i<12:
+            loc=( ((i-6)*160)+4, 164)
+        elif i<18:
+            loc=( ((i-12)*160)+6, 326)
+        else:
+            loc=( ((i-18)*160)+8, 488)
+            
+        cardlist.append(Card(gameDisplay, loc, picture_list2[i]))
         #Adds card to list with corresponding png in list2
 
     return cardlist
