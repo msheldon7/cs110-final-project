@@ -6,6 +6,11 @@ pygame.init()
 
 class Button:
     def __init__(self, screen, background, boxColor, hoverOverColor, coordinates, size, text):
+        '''
+        This function initializes the Button class and sets all of the variables
+        param list: screen, background, boxColor, hoverOverColor, coordinates, size, text
+        returns: None
+        '''
         self.textObject = pygame.font.SysFont("Time New Roman", 50)
         self.text = text
         self.textDraw = self.textObject.render(self.text, True, (0,0,0))
@@ -34,7 +39,7 @@ class Button:
 
     def drawButtonCover(self):
         self.screen.lock()
-        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size)))
+        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size))
         self.screen.unlock()
         pygame.display.update()
 
