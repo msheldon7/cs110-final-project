@@ -1,10 +1,11 @@
+
 import pygame
 import sys
 
 pygame.init()
 
 class Button:
-    def __init__(self, screen, background, boxColor, hoverOverColor, coordinates, size, text)
+    def __init__(self, screen, background, boxColor, hoverOverColor, coordinates, size, text):
         self.textObject = pygame.font.SysFont("Time New Roman", 50)
         self.text = text
         self.textDraw = self.textObject.render(self.text, True, (0,0,0))
@@ -18,23 +19,23 @@ class Button:
         self.drawButton()
 
     def drawButton(self):
-        self.Suface.lock()
+        self.screen.lock()
         pygame.draw.rect(self.screen, self.boxColor, pygame.Rect(self.coordinates, self.size))
-        self.Surface.unlock()
-        self.screen.blit(self.textDraw, self.Coordinates)
+        self.screen.unlock()
+        self.screen.blit(self.textDraw, self.coordinates)
         pygame.display.update()
 
     def drawButtonActive(self):
-        self.Suface.lock()
+        self.screen.lock()
         pygame.draw.rect(self.screen, self.hoverOverColor, pygame.Rect(self.coordinates, self.size))
-        self.Surface.unlock()
-        self.screen.blit(self.textDraw, self.Coordinates)
+        self.screen.unlock()
+        self.screen.blit(self.textDraw, self.coordinates)
         pygame.display.update()
 
     def drawButtonCover(self):
-        self.Surface.lock()
-        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size))
-        self.Suface.unlock()
+        self.screen.lock()
+        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size)))
+        self.screen.unlock()
         pygame.display.update()
 
     def drawText(self):
@@ -44,12 +45,12 @@ class Button:
     def getCoordinates(self):
         return self.coordinates
 
-    def getsize():
+    def getsize(self):
         return self.size
 
-    def text():
+    def text(self):
         self.text = text
         self.textDraw = self.textObject.render(self.text, True, (0,0,0))
 
-    def getText():
+    def getText(self):
         return self.text
