@@ -1,4 +1,5 @@
 
+import pygame
 import random
 
 #Constructs card object with attributes: front and back images, revealed
@@ -20,10 +21,10 @@ class Card:
     def getCoordinates(self):
         return self.coordinates
 
-    def getSize(self):
-        return self.size()
+    def getsize(self):
+        return self.size
 
-    def getClicked(self, clicked):
+    def getClicked(self):
         return self.clicked
 
     def getFront_image_file(self):
@@ -35,17 +36,20 @@ class Card:
     def setOver(self, over):
         self.over = over
 
-    def setFront_image_file(self, front_image_file):
-        self.front = front_image_file
+    def setFront_image_file(self, new_front_image_file):
+        self.front = new_front_image_file
+
+    def setClicked(self, clicked_new):
+        self.clicked=clicked_new
 
     def drawButton(self):
-        self.screen.blit(self.background, self.coordinates)
+        self.screen.blit(self.screen, self.coordinates)
 
     def drawButtonActive(self):
-        self.screen.blit(self.over, self.coordinates)
+        self.screen.blit(self.screen,self.coordinates)
 
     def drawCardImage(self):
-        self.screen.blit(self.front_image_file, self.coordinates)
+        self.screen.blit(self.screen, self.coordinates)
         pygame.display.update()
 
     def __str__(self):
