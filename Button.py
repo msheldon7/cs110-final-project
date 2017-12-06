@@ -39,7 +39,7 @@ class Button:
 
     def drawButtonCover(self):
         self.screen.lock()
-        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size))
+        pygame.draw.rect(self.screen, self.background, pygame.Rect((self.coordinates, self.size)))
         self.screen.unlock()
         pygame.display.update()
 
