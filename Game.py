@@ -10,6 +10,11 @@ import time
 import json
 
 def game(player):
+    '''
+    This function 
+    param list: 
+    returns: 
+    '''
     pygame.init()
 
     white=(255,255,255)
@@ -17,7 +22,7 @@ def game(player):
     green=(0,255,0)
     blue=(0,0,255)
     black=(0,0,0)
-    
+
     back = pygame.image.load("Back.png")
 
     wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png')]
