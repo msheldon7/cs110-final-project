@@ -1,7 +1,11 @@
-
 import pygame
 
 def buttonDetect(button):
+    '''
+    This function checks which button on the menu has been pressed.
+    param list: button
+    returns: pressed
+    '''
     pressed = False
     x, y = pygame.mouse.get_pos()
     buttonXOne = button.getCoordinates()[0]
