@@ -1,3 +1,4 @@
+
 import pygame
 import Button
 
@@ -10,8 +11,8 @@ def textInput(screen, base):
     while enter:
         person = ""
         preLength = len(inputString)
-        for event in pygame.event.get()
-            if event.type == pygame.KEYDOWN
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
                 time = 90
                 if event.key == pygame.K_0:
                     inputString.append("0")
@@ -95,22 +96,20 @@ def textInput(screen, base):
                     time = 0
             pygame.event.clear()
         if preLength != len(inputString):
-input
+        #This is to to help limit the length of the username
+        
+            if len(inputString) > 8:
+                num = 7
+                while num<50:
+                    try:
+                        del inputString[num]
+                        num += 1
+                    except:
+                        num = 50
+            for element in inputString:
+                time += element
+            base.setText(person)
+        base.drawButton()
+        pygame.time.wait(time)
 
-rollover
-
-        if len(inputString) > 8
-            num = 7
-            while num<50:
-                try:
-                    del inputString[num]
-                    num += 1
-                except:
-                    num = 50
-        for element in inputString:
-            time += element
-        base.setText(person)
-    base.drawButton()
-    pygame.time.wait(time)
-
-return base
+    return base
