@@ -1,3 +1,4 @@
+
 import pygame
 import Card
 import random
@@ -15,8 +16,8 @@ def game(player):
 
     wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png'), pygame.image.load('Santa.png'), pygame.image.load('Present.png'), pygame.image.load('Mistletoe.png'), pygame.image.load('Elf.png'), pygame.image.load('Candycane.png'), pygame.image.load('GingerbreadGirl.png'), pygame.image.load('Ornament.png'), pygame.image.load('Wreath.png')]
 
-    display_width = 800
-    display_length = 600
+    display_width = 970
+    display_length = 650
 
     font1 = pygame.font.SysFont("Times New Roman", 20)
 
@@ -52,37 +53,13 @@ def game(player):
 
     cardsRandom = []
     cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11]
-    for i in range(24)
-        randomCard = cards[random.randint(0, len(cards) -1]
+    for i in range(24):
+        randomCard = cards[random.randint(0, len(cards)-1)]
         cardsRandom.append(randomCard)
         cards.remove(randomCard)
 
-    card1 = Card.Card(
-    card2 = Card.Card(
-    card3 = Card.Card(
-    card4 = Card.Card(
-    card5 = Card.Card(
-    card6 = Card.Card(
-    card7 = Card.Card(
-    card8 = Card.Card(
-    card9 = Card.Card(
-    card10 = Card.Card(
-    card11 = Card.Card(
-    card12 = Card.Card(
-    card13 = Card.Card(
-    card14 = Card.Card(
-    card15 = Card.Card(
-    card16 = Card.Card(
-    card17 = Card.Card(
-    card18 = Card.Card(
-    card19 = Card.Card(
-    card20 = Card.Card(
-    card21 = Card.Card(
-    card22 = Card.Card(
-    card23 = Card.Card(
-    card24 = Card.Card(
 
-    cardList2 = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15,card16,card17,card18,card19,card20,card21,card22,card23,card24]
+    cardList2 = Card.createCardList(24, gameDisplay)#Card list with pictures all in randomized order
 
     clickcount = 0
     cardlist = []
@@ -167,9 +144,9 @@ def game(player):
                 gameDisplay.blit(back,(560,534))
                 gameDisplay.blit(messageFifteen,(560,535))
 
-        if playerPoints == 12 and scored == 0
+        if(playerPoints == 12 and scored == 0):
             timerEnd = timer*100 + random.randint(1, 45)
-            highscores = json.load(open("highscoresList".txt", "r"))
+            highscores = json.load(open("highscoresList.txt", "r"))
             highscores[str(timerEnd)] = str(player)
             json.dump(highscores,open("highscoresList.txt", "w"))
             scored += 1
