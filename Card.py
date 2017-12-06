@@ -6,7 +6,11 @@ import random
 class Card:
 
     def __init__(self, screen, coordinates, front_image_file):
-
+        '''
+        This function 
+        param list: screen, coordinates, front_image_file
+        returns: None
+        '''
         self.front=str(front_image_file)
         self.back='Back.png'
 
@@ -46,7 +50,7 @@ class Card:
         self.screen.blit(self.screen, self.coordinates)
 
     def drawButtonActive(self):
-        self.screen.blit(self.screen,self.coordinates)
+        self.screen.blit(self.screen, self.coordinates)
 
     def drawCardImage(self):
         self.screen.blit(self.screen, self.coordinates)
@@ -56,11 +60,14 @@ class Card:
 
         return str(self.front)
 
-
 def createCardList(num_cards, gameDisplay):
-
-    picture_list1=['Penguin.png','Snowflake.png','Tree.png','GingerbreadMan.png','NorthPole.png','Star.png','Sleigh.png','Reindeer.png','Owl.png','Stocking.png','Snowman.png','Bells.png','Penguin.png','Snowflake.png','Tree.png','GingerbreadMan.png','NorthPole.png','Star.png','Sleigh.png','Reindeer.png','Owl.png','Stocking.png','Snowman.png','Bells.png']
-    picture_list2=random.sample(picture_list1,num_cards)
+    '''
+    This function makes a list of the image files (2 of each) and then randomizes the order so that they are put in random spots when placed on the board every time the program is run. It then places the cards in a 4x6 grid.
+    param list: num_cards, gameDisplay
+    returns: cardlist
+    '''
+    picture_list1=['Penguin.png', 'Snowflake.png', 'Tree.png', 'GingerbreadMan.png', 'NorthPole.png', 'Star.png', 'Sleigh.png', 'Reindeer.png', 'Owl.png', 'Stocking.png', 'Snowman.png', 'Bells.png', 'Penguin.png', 'Snowflake.png', 'Tree.png', 'GingerbreadMan.png', 'NorthPole.png', 'Star.png', 'Sleigh.png', 'Reindeer.png', 'Owl.png', 'Stocking.png', 'Snowman.png', 'Bells.png']
+    picture_list2=random.sample(picture_list1, num_cards)
     #List2 (length=24) contains 2 of each of 12 pictures in a random order
 
     cardlist=[]
