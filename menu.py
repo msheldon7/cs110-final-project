@@ -1,28 +1,28 @@
-
 import pygame
 import highscores
 import sys
 import Button
 import findButton
-import Game
 
 def menu():
-    white=(255,255,255)
-    red=(255,0,0)
-    green=(0,255,0)
+    '''
+    This function sets up the display for the main menu and has some logic determining whether or not the menu should remain on screen.
+    param list: none
+    returns: None
+    '''
     screen = "menu"
     while screen == "menu":
-        title = pygame.image.load("title.png")
-        gameDisplay = pygame.display.set_mode((970,650))
-        gameDisplay.fill(white)
+        title = pygame.image.load("")
+        gameDisplay = pygame.display.set_mode((800,600))
+        gameDisplay.fill("white")
         pygame.display.set_caption("Winter Card Matcher")
-        gameDisplay.blit(title,(150,0))
+        gameDisplay.blit(title,(245,5))
         running = True
-        play = Button.Button(gameDisplay, white, green, red, (200, 200), (150, 50), "START")
+        play = Button.Button(gameDisplay, white, green, red, (200, 100), (150, 50), "START")
 
-        highscore = Button.Button(gameDisplay, white, green, red, (200, 300), (250, 50), "HIGHSCORES")
+        highscore = Button.Button(gameDisplay, white, green, red, (200, 200), (250, 50), "HIGHSCORES")
 
-        quitGame = Button.Button(gameDisplay, white, green, red, (200, 400), (350, 50), "QUIT")
+        quitGame = Button.Button(gameDisplay, white, green, red, (200, 300), (350, 50), "QUIT")
 
         while running:
             for event in pygame.event.get():
@@ -30,20 +30,19 @@ def menu():
                     pygame.quit()
                     sys.exit()
 
-                if findButton.buttonDetect(quitGame):
+                if findButton(quitGame):
                     running = False
                     pygame.quit()
                     quit()
 
-                elif findButton.buttonDetect(play):
+                elif findButton(play):
                     running = False
-                    Game.game(24)
+                    mode.mode(amountOfCards)
 
-                elif findButton.buttonDetect(highscore):
+                elif findButton(highscore):
                     running = False
                     highscore.highscores()
 
                 else:
                     running = True
-
 menu()
