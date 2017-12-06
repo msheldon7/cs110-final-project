@@ -18,15 +18,15 @@ def menu():
     while screen == "menu":
         title = pygame.image.load("title.png")
         gameDisplay = pygame.display.set_mode((970,650))
-        gameDisplay.fill("white")
+        gameDisplay.fill("red")
         pygame.display.set_caption("Winter Card Matcher")
         gameDisplay.blit(title,(150,0))
         running = True
-        play = Button.Button(gameDisplay, white, green, red, (200, 200), (150, 50), "START")
+        play = Button.Button(gameDisplay, white, green, yellow, (225, 200), (150, 50), "START")
 
-        highscore = Button.Button(gameDisplay, white, green, red, (200, 300), (250, 50), "HIGHSCORES")
+        highscore = Button.Button(gameDisplay, white, green, yellow, (210, 300), (250, 50), "HIGHSCORES")
 
-        quitGame = Button.Button(gameDisplay, white, green, red, (200, 300), (400, 50), "QUIT")
+        quitGame = Button.Button(gameDisplay, white, green, yellow, (200, 300), (400, 50), "QUIT")
 
         while running:
             for event in pygame.event.get():
