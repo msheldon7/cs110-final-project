@@ -1,8 +1,12 @@
-
 import pygame
 import Button
 
 def textInput(screen, base):
+    '''
+    This function gets the input for the user's name to be added to the high scores list.
+    param list: screen, base
+    returns: base
+    '''
     person = ""
     inputString = []
     time = 0
@@ -96,8 +100,7 @@ def textInput(screen, base):
                     time = 0
             pygame.event.clear()
         if preLength != len(inputString):
-        #This is to to help limit the length of the username
-        
+            #This is to to help limit the length of the username
             if len(inputString) > 8:
                 num = 7
                 while num<50:
