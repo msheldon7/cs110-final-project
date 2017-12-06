@@ -12,9 +12,15 @@ import json
 def game(player):
     pygame.init()
 
+    white=(255,255,255)
+    red=(255,0,0)
+    green=(0,255,0)
+    blue=(0,0,255)
+    black=(0,0,0)
+    
     back = pygame.image.load("Back.png")
 
-    wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png'), pygame.image.load('Santa.png'), pygame.image.load('Present.png'), pygame.image.load('Mistletoe.png'), pygame.image.load('Elf.png'), pygame.image.load('Candycane.png'), pygame.image.load('GingerbreadGirl.png'), pygame.image.load('Ornament.png'), pygame.image.load('Wreath.png')]
+    wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png')]
 
     display_width = 970
     display_length = 650
@@ -26,10 +32,12 @@ def game(player):
 
     back = Button.Button(gameDisplay, white, red, green, (50, 535), (250, 50), "Menu")
 
-    totalPointsText = (player + "Score:")
+    totalPointsText = (str(player) + "Score:")
+
+    title = pygame.image.load("title.png")
 
     gameDisplay.fill(blue)
-    gameDisplay.blit(title, (245, 5))
+    gameDisplay.blit(title, (150, 0))
 
     messageOne = font1.render(totalPointsText,1,white)
     gameDisplay.blit(messageOne, (5,25))
@@ -79,12 +87,12 @@ def game(player):
         timerText = timerFont.render("Timer: " + format(timer/1000.0, '.3f'), True, black)
         gameDisplay.blit(timerText, (560,10))
 
-        if findButton(back):
+        if findButton.buttonDetect(back):
             running = False
 
         for card in cardList2:
             if not card.getClicked():
-                if findButton(card):
+                if findButton.buttonDetect(card):
                     card.drawCardImage()
                     card.setClicked(True)
                     cardlist.append(card)
