@@ -1,4 +1,3 @@
-
 import pygame
 import findButton
 import textInput
@@ -6,6 +5,11 @@ import sys
 import Button
 
 def highscores():
+    '''
+    This function sets up the highscores screen and displays the list on screen.
+    param list: none
+    returns: None
+    '''
     black = (0,0,0)
     white = (255,255,255)
 
