@@ -40,3 +40,5 @@ def highscores():
 
             else:
                 running = True
+
+    gameDisplay = pygame.display.set_mode((display_width, display_length))
