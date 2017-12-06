@@ -1,3 +1,4 @@
+
 import pygame
 import findButton
 import textInput
@@ -8,8 +9,8 @@ def highscores():
     black = (0,0,0)
     white = (255,255,255)
 
-    display_width = 800
-    display_length = 600
+    display_width = 970
+    display_length = 650
 
     gameDisplay = pygame.display.set_mode((display_width, display_length))
     gameDisplay.fill(white)
@@ -40,5 +41,3 @@ def highscores():
 
             else:
                 running = True
-
-    gameDisplay = pygame.display.set_mode((display_width, display_length))
