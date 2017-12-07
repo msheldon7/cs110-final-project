@@ -12,9 +12,9 @@ import imageCheck
 
 def game(player):
     '''
-    This function
-    param list:
-    returns:
+    This function has most of the logic for the actual running of the game itself. The window for the game is set up and all of the cards as well as the timer and score are added as well. It also runs tests in the background to determine if the game has been completed or not.
+    param list: player
+    returns: None
     '''
     pygame.init()
 
