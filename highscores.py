@@ -12,6 +12,8 @@ def highscores():
     '''
     black = (0,0,0)
     white = (255,255,255)
+    green = (0, 255, 0)
+    red = (255, 0, 0)
 
     display_width = 970
     display_length = 650
@@ -31,16 +33,16 @@ def highscores():
     gameDisplay.blit(score, (280, 120))
     gameDisplay.blit(score, (680, 120))
 
-    back = Button.Button(gameDisplay, white, green, red, (260, 540), (255, 50), "Menu")
+    back = Button.Button(gameDisplay, white, green, red, (260, 540), (255, 50), "MENU")
     pygame.display.update()
-
+    running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-                
-            if findButton(back):
+
+            if findButton.buttonDetect(back):
                 running = False
 
             else:
