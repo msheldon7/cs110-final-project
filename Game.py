@@ -5,7 +5,6 @@ import random
 import Button
 import findButton
 import sys
-import evaluate
 import time
 import json
 import imageCheck
