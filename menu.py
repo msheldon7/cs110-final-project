@@ -1,7 +1,5 @@
 import pygame
 import highscores
-import sysimport pygame
-import highscores
 import sys
 import Button
 import findButton
@@ -21,15 +19,17 @@ def menu():
     while screen == "menu":
         title = pygame.image.load("title.png")
         present = pygame.image.load("present.png")
+        treeStar = pygame.image.load("treeStar.png")
         gameDisplay = pygame.display.set_mode((970,650))
         gameDisplay.fill(red)
         pygame.display.set_caption("Winter Card Matcher")
         gameDisplay.blit(title,(100,0))
         gameDisplay.blit(present,(600, 300))
+        gameDisplay.blit(treeStar, (250, 150))
         running = True
         play = Button.Button(gameDisplay, white, green, white, (200, 230), (175, 50), "   START")
 
-        stump = Button.Button(gameDisplay, white, brown, brown, (250, 480),(50, 50), "")
+        stump = Button.Button(gameDisplay, white, brown, brown, (260, 480),(50, 50), "")
 
         highscore = Button.Button(gameDisplay, white, green, white, (160, 330), (250, 50), " HIGHSCORES")
 
