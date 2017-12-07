@@ -65,7 +65,7 @@ def game(player):
     messageFourteen = font1.render("1 points to win",30, white)
     messageFifteen = font1.render("You won!",30, white)
 
-    for i in range(num_cards):
+    for i in range(24):
 
         if i<6:
             loc=( (i*160)+2, 2)
