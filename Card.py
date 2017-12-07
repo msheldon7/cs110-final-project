@@ -13,9 +13,11 @@ class Card:
         '''
         self.front=str(front_image_file)
         self.back='Back.png'
+        self.frontDisplay = pygame.image.load(self.front)
+        self.backDisplay = pygame.image.load(self.back)
 
         self.revealed=False
-        
+
         self.size=(160,160)
         self.screen = screen
         self.coordinates = coordinates
@@ -53,7 +55,7 @@ class Card:
         self.screen.blit(self.screen, self.coordinates)
 
     def drawCardImage(self):
-        self.screen.blit(self.screen, self.coordinates)
+        self.screen.blit(self.frontDisplay, self.coordinates)
         pygame.display.update()
 
     def __str__(self):
@@ -76,12 +78,12 @@ def createCardList(num_cards, gameDisplay):
         if i<6:
             loc=( (i*160)+2, 2)
         elif i<12:
-            loc=( ((i-6)*160)+4, 164)
+            loc=( ((i-6)*160)+2, 164)
         elif i<18:
-            loc=( ((i-12)*160)+6, 326)
+            loc=( ((i-12)*160)+2, 326)
         else:
-            loc=( ((i-18)*160)+8, 488)
-            
+            loc=( ((i-18)*160)+2, 488)
+
         cardlist.append(Card(gameDisplay, loc, picture_list2[i]))
         #Adds card to list with corresponding png in list2
 
