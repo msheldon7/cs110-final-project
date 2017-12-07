@@ -28,15 +28,15 @@ def game(player):
 
     wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png')]
 
-    display_width = 970
-    display_length = 650
+    display_width = 720
+    display_length = 970
 
     font1 = pygame.font.SysFont("Times New Roman", 20)
 
-    gameDisplay = pygame.display.set_mode((display_width, display_width))
+    gameDisplay = pygame.display.set_mode((display_length, display_width))
     clock = pygame.time.Clock()
 
-    back = Button.Button(gameDisplay, white, red, green, (50, 535), (250, 50), "MENU")
+    back = Button.Button(gameDisplay, white, blue, white, (450, 680), (100, 50), "MENU")
 
     totalPointsText = (str(player) + "Score:")
 
@@ -104,7 +104,7 @@ def game(player):
         if playerOnePoints <12:
             timer += seconds
         timerText = timerFont.render("Timer: " + format(timer/1000.0, '.3f'), True, black)
-        gameDisplay.blit(timerText, (800,10))
+        gameDisplay.blit(timerText, (10,680))
 
         if findButton.buttonDetect(back):
             running = False
