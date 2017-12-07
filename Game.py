@@ -11,9 +11,9 @@ import json
 
 def game(player):
     '''
-    This function 
-    param list: 
-    returns: 
+    This function
+    param list:
+    returns:
     '''
     pygame.init()
 
@@ -35,7 +35,7 @@ def game(player):
     gameDisplay = pygame.display.set_mode((display_width, display_width))
     clock = pygame.time.Clock()
 
-    back = Button.Button(gameDisplay, white, red, green, (50, 535), (250, 50), "Menu")
+    back = Button.Button(gameDisplay, white, red, green, (50, 535), (250, 50), "MENU")
 
     totalPointsText = (str(player) + "Score:")
 
@@ -90,7 +90,7 @@ def game(player):
         if playerPoints <12:
             timer += seconds
         timerText = timerFont.render("Timer: " + format(timer/1000.0, '.3f'), True, black)
-        gameDisplay.blit(timerText, (560,10))
+        gameDisplay.blit(timerText, (800,10))
 
         if findButton.buttonDetect(back):
             running = False
