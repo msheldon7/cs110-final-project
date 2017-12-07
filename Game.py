@@ -8,12 +8,13 @@ import sys
 import evaluate
 import time
 import json
+import imageCheck
 
 def game(player):
     '''
-    This function
-    param list:
-    returns:
+    This function 
+    param list: 
+    returns: 
     '''
     pygame.init()
 
@@ -23,7 +24,8 @@ def game(player):
     blue=(0,0,255)
     black=(0,0,0)
 
-    back = pygame.image.load("Back.png")
+    backImage = pygame.image.load("Back.png")
+
 
     wintercards = [pygame.image.load("Penguin.png"), pygame.image.load('Snowflake.png'), pygame.image.load('Tree.png'), pygame.image.load('GingerbreadMan.png'), pygame.image.load('NorthPole.png'), pygame.image.load('Star.png'), pygame.image.load('Sleigh.png'), pygame.image.load('Reindeer.png'), pygame.image.load('Owl.png'), pygame.image.load('Stocking.png'), pygame.image.load('Snowman.png'), pygame.image.load('Bells.png')]
 
@@ -64,6 +66,22 @@ def game(player):
     messageFourteen = font1.render("1 points to win",30, white)
     messageFifteen = font1.render("You won!",30, white)
 
+    for i in range(24):
+
+        if i<6:
+            loc=( (i*160)+2, 2)
+        elif i<12:
+            loc=( ((i-6)*160)+4, 164)
+        elif i<18:
+            loc=( ((i-12)*160)+6, 326)
+        else:
+            loc=( ((i-18)*160)+8, 488)
+
+        gameDisplay.blit(backImage,loc)
+
+
+
+
     cardsRandom = []
     cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11]
     for i in range(24):
@@ -73,11 +91,11 @@ def game(player):
 
 
     cardList2 = Card.createCardList(24, gameDisplay)#Card list with pictures all in randomized order
-
+    
     clickcount = 0
     cardlist = []
     running = True
-    playerPoints = 0
+    playerOnePoints = 0
     scored = 0
     timer = 0
     timerFont = pygame.font.SysFont("Times New Roman", 30)
@@ -87,7 +105,7 @@ def game(player):
                 pygame.quit()
                 sys.exit()
         seconds = clock.tick()
-        if playerPoints <12:
+        if playerOnePoints <12:
             timer += seconds
         timerText = timerFont.render("Timer: " + format(timer/1000.0, '.3f'), True, black)
         gameDisplay.blit(timerText, (800,10))
@@ -95,6 +113,8 @@ def game(player):
         if findButton.buttonDetect(back):
             running = False
 
+        
+        
         for card in cardList2:
             if not card.getClicked():
                 if findButton.buttonDetect(card):
@@ -108,8 +128,8 @@ def game(player):
 
             pygame.time.wait(1000)
             cardlist[0],cardlist[1], points = imageCheck.imageCheck(cardlist[0],cardlist[1],points)
-
-            playerPoints += points
+            print(cardlist)
+            playerOnePoints += points
             score = font1.render(str(playerOnePoints),1,white)
             gameDisplay.blit(score, (83,50))
 
@@ -118,46 +138,46 @@ def game(player):
             pygame.time.wait(50)
 
             if playerOnePoints == 0:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageThree,(560, 535))
             elif playerOnePoints == 1:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageFour,(560,535))
             elif playerOnePoints == 2:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageFive,(560,535))
             elif playerOnePoints == 3:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageSix,(560,535))
             elif playerOnePoints == 4:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageSeven,(560,535))
             elif playerOnePoints == 5:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageEight,(560,535))
             elif playerOnePoints == 6:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageNine,(560,535))
             elif playerOnePoints == 7:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageTen,(560,535))
             elif playerOnePoints == 8:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageEleven,(560,535))
             elif playerOnePoints == 9:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageTwelve,(560,535))
             elif playerOnePoints == 10:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageThirteen,(560,535))
             elif playerOnePoints == 11:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageFourteen,(560,535))
             else:
-                gameDisplay.blit(back,(560,534))
+                gameDisplay.blit(backImage,(560,534))
                 gameDisplay.blit(messageFifteen,(560,535))
 
-        if(playerPoints == 12 and scored == 0):
+        if(playerOnePoints == 12 and scored == 0):
             timerEnd = timer*100 + random.randint(1, 45)
             highscores = json.load(open("highscoresList.txt", "r"))
             highscores[str(timerEnd)] = str(player)
