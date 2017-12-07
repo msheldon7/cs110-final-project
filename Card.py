@@ -7,7 +7,7 @@ class Card:
 
     def __init__(self, screen, coordinates, front_image_file):
         '''
-        This function 
+        This function initializes all of the variables for the card and sets up the front and back of the cards to be displayed.
         param list: screen, coordinates, front_image_file
         returns: None
         '''
